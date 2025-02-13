@@ -1,4 +1,3 @@
-
 #---------------------------------------------------------------------------------
 # Define the variables
 #---------------------------------------------------------------------------------
@@ -28,7 +27,6 @@ BUILD		:=	build
 SOURCES		:=	source
 DATA		:=	data
 INCLUDES	:=
-SHELL 		:=	/bin/bash
 
 #---------------------------------------------------------------------------------
 # options for code generation
@@ -103,14 +101,6 @@ export LIBPATHS	:= -L$(LIBOGC_LIB) $(foreach dir,$(LIBDIRS),-L$(dir)/lib)
 
 export OUTPUT	:=	$(CURDIR)/$(TARGET)
 .PHONY: $(BUILD) clean
-
-# ---------------------------------------------------------------------------------
-# Convert UTF-8 precursor file to cp437 template.c file to be compiled.
-# cd <"Wii-Stopwatch-Main" folder> && iconv -f UTF-8 -t CP437 ./template-to-edit-utf8.c > ./source/template.c && make
-# ---------------------------------------------------------------------------------
-# encoding:
-# 	bash -c "iconv -f UTF-8 -t CP437 ./template-to-edit-utf8.c > ./source/template.c"
-# 	bash -c "echo 'Converted, it should be.'"
 
 #---------------------------------------------------------------------------------
 $(BUILD):
