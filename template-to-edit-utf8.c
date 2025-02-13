@@ -1,8 +1,8 @@
 //TO-DO:
 
 //Finish translations. Add for new lines.
-// For search: ≠NL ≠IT ≠DE
-// Probably unneeded: ≠FR ≠EN ≠ES ≠JA ≠KO
+// For search: ¬°NL ¬°IT ¬°DE
+// Probably unneeded: ¬°FR ¬°EN ¬°ES ¬°JA ¬°KO
 // Due to encoding problems, Japanese likely can't be added.
 //Fix issues I guess.
 
@@ -22,7 +22,7 @@
 
 
 //Issues with some special characters. Wii display uses CP437.
-//So, an "¢" is C3 B3 is UTF-8 Hex bytes,
+//So, an "√≥" is C3 B3 is UTF-8 Hex bytes,
 //but it's read as two CP437 graphical characters.
 //Following are resource websites:
 //https://www.ascii-codes.com/
@@ -126,7 +126,7 @@ int main(int argc, char **argv)
     
     //Get the system language
     //int language ***= CONF_GetLanguage(); //*** is to be removed later as it's just to avoid Python taking this line.
-    int language = 0;//DEBUG. PYTHON CHANGE THIS. Sets to system language.
+    int language = CONF_GetLanguage();//DEBUG. PYTHON CHANGE THIS. Sets to system language.
     
     void afficheLogo(void){
         switch(language){
@@ -184,7 +184,7 @@ int main(int argc, char **argv)
                 printf("			 \\____|_|   \\___/_| |_|___/_|  |_|\\___\\___/|   \\___/\n");
                 printf(" \n");
                 printf("Autor: Ilovemyhouse.\n");
-                printf("Versi¢n: %s\n",versionProgram);
+                printf("Versi√≥n: %s\n",versionProgram);
                 break;
             case 5: //Italian
                 printf("                                                                         \r");
@@ -215,14 +215,14 @@ int main(int argc, char **argv)
                 break;
             default : //Translation missing
                 printf("                                                                         \r");
-                printf("			Stopwatch   Chron¢metro\n");
+                printf("			Stopwatch   Chron√≥metro\n");
                 printf("			   __               _____          /\\   Olympic\n");
-                printf("			  _||_“       000  |___  \\ .573ms /  \\   athlete | \n");
+                printf("			  _||_‚ï•       000  |___  \\ .573ms /  \\   athlete | \n");
                 printf("			 /  |  \\  0  0   0     / /  ____ /_  _\\          | 400m\n");
-                printf("			|   |   | 0  0 | 0  __/ /_ / __/   ≥≥      =  O  | Lap\n");
-                printf("			|-  ˙  -|    0 | 0 /__ __/ \\__     ≥≥     =  7   | 1/4 mi\n");
-                printf("			|  /    | 0  0   0  / /    ___\\ \\  ≥≥       /    |\n");
-                printf("			 \\ƒƒ¡ƒƒ/  0   000  /_/     \\____/  ¿Ÿ      M____________/ \n");
+                printf("			|   |   | 0  0 | 0  __/ /_ / __/   ‚îÇ‚îÇ      =  O  | Lap\n");
+                printf("			|-  ¬∑  -|    0 | 0 /__ __/ \\__     ‚îÇ‚îÇ     =  7   | 1/4 mi\n");
+                printf("			|  /    | 0  0   0  / /    ___\\ \\  ‚îÇ‚îÇ       /    |\n");
+                printf("			 \\‚îÄ‚îÄ‚î¥‚îÄ‚îÄ/  0   000  /_/     \\____/  ‚îî‚îò      M____________/ \n");
                 printf(" \n");
                 printf("By user Ilovemyhouse.\n");
                 printf("Version %s\n",versionProgram); 
@@ -243,37 +243,37 @@ int main(int argc, char **argv)
                 printf("Press the HOME (START) button to exit.\n");
                 break;
             case 2: //Allemand
-                printf(" \n  Stopwatch controls  Wii (GC)\n"); // ≠DE
-                printf("DrÅcke A um die Stoppuhr zu starten.\n");
-                printf("Press 1 (Y) to start immediately.\n"); // ≠DE
-                printf("DrÅcke wieder A (Z) um eine Runde zu machen.\n");
-                printf("DrÅcke auf B (B) um die Stoppuhr zu pausen oder zu entpausen.\n");
-                printf("DrÅcke + (L) um die Stoppuhr aufzuhalten, und zu reinitialisieren.\n");
-                printf("DrÅcke - (X) um die Kredite zu sehen.\n");
-                printf("DrÅcke den HOME-(START-)Knopf um die Stoppuhr zu verlassen.\n");
+                printf(" \n  Stopwatch controls  Wii (GC)\n"); // ¬°DE
+                printf("Dr√ºcke A um die Stoppuhr zu starten.\n");
+                printf("Press 1 (Y) to start immediately.\n"); // ¬°DE
+                printf("Dr√ºcke wieder A (Z) um eine Runde zu machen.\n");
+                printf("Dr√ºcke auf B (B) um die Stoppuhr zu pausen oder zu entpausen.\n");
+                printf("Dr√ºcke + (L) um die Stoppuhr aufzuhalten, und zu reinitialisieren.\n");
+                printf("Dr√ºcke - (X) um die Kredite zu sehen.\n");
+                printf("Dr√ºcke den HOME-(START-)Knopf um die Stoppuhr zu verlassen.\n");
                 break;
-            case 3: //Franáais
-                printf(" \n  Contrìles de chronomätre   Wii (GC)\n");
-                printf("Appuyez sur A (A) pour dÇmarrer avec un dÇlai.\n");
-                printf("Appuyez sur 1 (Y) pour dÇmarrer sans dÇlai.\n");
+            case 3: //Fran√ßais
+                printf(" \n  Contr√¥les de chronom√®tre   Wii (GC)\n");
+                printf("Appuyez sur A (A) pour d√©marrer avec un d√©lai.\n");
+                printf("Appuyez sur 1 (Y) pour d√©marrer sans d√©lai.\n");
                 printf("Appuyez de nouveau sur A (Z) pour faire un tour.\n");
                 printf("Appuyez sur B (R) pour mettre sur pause ou pour continuer.\n");
-                printf("Appuyez sur + (L) pour arràter et rÇinistialiser.\n");
-                printf("Appuyez sur - (X) pour afficher les crÇdits.\n");
+                printf("Appuyez sur + (L) pour arr√™ter et r√©inistialiser.\n");
+                printf("Appuyez sur - (X) pour afficher les cr√©dits.\n");
                 printf("Appuyez sur le bouton HOME (START) pour le quitter.\n");
                 break;
             case 4: //Espagnol
-                printf(" \n  Controles de cron¢metro   Wii (GC)\n");
+                printf(" \n  Controles de cron√≥metro   Wii (GC)\n");
                 printf("Presiona A para iniciar con un retraso.\n");
                 printf("Presiona 1 (Y) para iniciar de inmediato.\n");
                 printf("Presiona A (Z) otra vez para contar una vuelta.\n");
                 printf("Presiona B (R) para pausar o reanudar.\n");
                 printf("Presiona + (L) para parar y reiniciar.\n");
-                printf("Presiona - (X) para ver los crÇditos.\n");
+                printf("Presiona - (X) para ver los cr√©ditos.\n");
                 printf("Presiona HOME (START) para salir del programa.\n");
                 break;
             case 5: //Italien
-                printf(" \n  Stopwatch controls  Wii (GC)\n"); // ≠IT
+                printf(" \n  Stopwatch controls  Wii (GC)\n"); // ¬°IT
                 printf("Premi A per avviare il cronometro.\n");
                 printf("Premi 1 (Y) per avviare immediatamente.\n");
                 printf("Premi A (Z) per fare un giro.\n");
@@ -282,12 +282,12 @@ int main(int argc, char **argv)
                 printf("Premi - (X) per visualizzare i crediti.\n");
                 printf("Premi il pulsante HOME (START) per uscire dal cronometro.\n");
                 break;
-            case 6: //NÇerlandais
-                printf(" \n  Stopwatch controls  Wii (GC)\n"); //≠NL
+            case 6: //N√©erlandais
+                printf(" \n  Stopwatch controls  Wii (GC)\n"); //¬°NL
                 printf("Druk op A om de stopwatch te starten.\n");
-                printf("Press 1 (Y) to start ismmediately.\n"); // ≠NL
+                printf("Press 1 (Y) to start ismmediately.\n"); // ¬°NL
                 printf("Druk nogmaals op A (Z) om een ronde tz maken.\n");;
-                printf("Press B (R) to pause or resume.\n"); // ≠NL
+                printf("Press B (R) to pause or resume.\n"); // ¬°NL
                 printf("Druk op + (L) om de stopwatch te stoppen zn te resetten.\n");
                 printf("Druk op - (X) om ze credits te zien.\n");
                 printf("Druk op de HOME (START) knop om de stopwatch af te sluiten.\n");
@@ -314,7 +314,7 @@ int main(int argc, char **argv)
         case 2: //Allemand
             printf("Initialisierung. Bitte warten.\r");
             break;
-        case 3: //Franáais
+        case 3: //Fran√ßais
             printf("Initialisation... veuillez patienter\r");
             break;
         case 4: //Espagnol
@@ -323,11 +323,11 @@ int main(int argc, char **argv)
         case 5: //Italien
 			printf("Caricamento... Attendere\r");
             break;
-        case 6: //NÇerlandais
+        case 6: //N√©erlandais
             printf("Initialiseren... een moment geduld\r");
             break;
         default : //Anglais simple
-            printf("Translation missing...\nConsole langauge not supported,\nso simple English is displayed\n");
+            printf("Translation missing...\nConsole langauge not supported,\nso simple English is displayed.\n");
             printf("Wait for start up.\r");
             break;
     }
@@ -382,7 +382,7 @@ int main(int argc, char **argv)
 					printf("Beenden ...\r");
 					break;
 
-				case 3: //Franáais
+				case 3: //Fran√ßais
 					printf("Sortie...\r");
 					break;
 
@@ -394,7 +394,7 @@ int main(int argc, char **argv)
 					printf("Uscita...\r");
 					break;
 
-				case 6: //NÇerlandais
+				case 6: //N√©erlandais
 					printf("Afsluiten...\r");
 					break;
 
@@ -420,7 +420,7 @@ int main(int argc, char **argv)
                         printf("           			Runde %d:",Lap);
                         break;
                     case 3:	//French
-                        printf("           			Tour nß %d :",Lap);
+                        printf("           			Tour n¬∫ %d :",Lap);
                         break;
                     case 4:	//Spanish
                         printf("           			  Vuelta %d:",Lap);
@@ -452,19 +452,19 @@ int main(int argc, char **argv)
                     printf("Immediate start\n");
                     break;
                 case 2: //German
-                    printf("Blitz-start\n"); //This is completely made up. Translation missing, might as well be. ≠DE
+                    printf("Blitz-start\n"); //This is completely made up. Translation missing, might as well be. ¬°DE
                     break;
                 case 3:	//French
-                    printf("Commencement immÇdiat\n");
+                    printf("Commencement imm√©diat\n");
                     break;
                 case 4:	//Spanish
-                    printf("Inicio r†pido\n");
+                    printf("Inicio r√°pido\n");
                     break;
                 case 5: //Italian
-                    printf("\n"); // ≠IT
+                    printf("\n"); // ¬°IT
                     break;
                 case 6: //Dutch
-                    printf("\n"); // ≠NL
+                    printf("\n"); // ¬°NL
                     break;
                 default : //Missing translation
                     printf("Quick start\n");
@@ -563,13 +563,13 @@ int main(int argc, char **argv)
 					printf("\nStopped and reset!\n");
 					break;
 				case 2: //German
-					printf("\nGestopppt und zurÅckgesetzt!\n");
+					printf("\nGestopppt und zur√ºckgesetzt!\n");
 					break;
 				case 3: //French
-					printf("\nStoppÇ et rÇinistialisÇ !\n");
+					printf("\nStopp√© et r√©inistialis√© !\n");
 					break;
 				case 4: //Spanish
-					printf("\nSe ha parado y reiniciado el cron¢metro.\n");
+					printf("\nSe ha parado y reiniciado el cron√≥metro.\n");
 					break;
 				case 5: //Italian
 					printf("\nFermato e resettato!\n");
@@ -590,24 +590,24 @@ int main(int argc, char **argv)
 			{
 				Pause = !Pause;
                 switch(language){
-                    //Translators ensure the pause string is padded with spaces to make them same length. ≠DE ≠IT ≠NL
+                    //Translators ensure the pause string is padded with spaces to make them same length. ¬°DE ¬°IT ¬°NL
                     case 1: //Anglais
                         printf("%s\r",(Pause) ? "Pause  " : "Unpause");
                         break;
                     case 2: //Allemand // Not translated.
-                        printf("%s\r",(Pause) ? "Pause  " : "Unpause"); //≠DE
+                        printf("%s\r",(Pause) ? "Pause  " : "Unpause"); //¬°DE
                         break;
-                    case 3: //Franáais
+                    case 3: //Fran√ßais
                         printf("%s\r",(Pause) ? "Pause   " : "Continue");
                         break;
                     case 4: //Espagnol
                         printf("%s\r",(Pause) ? "Pausa    " : "Reanudado");
                         break;
                     case 5: //Italien // Not translated.
-                        printf("%s\r",(Pause) ? "Pause  " : "Unpause"); //≠IT
+                        printf("%s\r",(Pause) ? "Pause  " : "Unpause"); //¬°IT
                         break;
-                    case 6: //NÇerlandais // Not translated.
-                        printf("%s\r",(Pause) ? "Pause  " : "Unpause"); //≠DE
+                    case 6: //N√©erlandais // Not translated.
+                        printf("%s\r",(Pause) ? "Pause  " : "Unpause"); //¬°DE
                         break;
                     default : //Traduction manquante
                         printf("%s\r",(Pause) ? "Pause  " : "Unpause");
@@ -628,16 +628,16 @@ int main(int argc, char **argv)
                         printf("Kann die Kredite nicht anzeigen weill die Stoppuhr lauuft.\n");
                         break;
                     case 3: //French
-                        printf("La gÇnÇrique ne peut pas àtre affichÇe car le chronomätre est allumÇ.\n");
+                        printf("La g√©n√©rique ne peut pas √™tre affich√©e car le chronom√®tre est allum√©.\n");
                         break;
                     case 4: //Spanish
-                        printf("No se puede mostrar los crÇditos cu†ndo el cron¢metro est† en marcha.\n");
+                        printf("No se puede mostrar los cr√©ditos cu√°ndo el cron√≥metro est√° en marcha.\n");
                         break;
                     case 5: //Italian
-                        printf("I crediti non possono essere visualizzati perchÇ il cronometro ä acceso.\n");
+                        printf("I crediti non possono essere visualizzati perch√© il cronometro √® acceso.\n");
                         break;
                     case 6: //Dutch. Translation needed
-                        printf("Gestopt en gereset!\n"); // ≠NL
+                        printf("Gestopt en gereset!\n"); // ¬°NL
                         break;
                     default : //Translation missing
                         //printf("Translation missing!\n");
@@ -662,31 +662,31 @@ int main(int argc, char **argv)
                         printf("KREDITE\n");
                         printf("Idee: Ilovemyhouse\n");
                         printf("Testen: Ilovemyhouse\n");
-                        printf("öbersetzungen: Freunde und ich selber.\n");
+                        printf("√úbersetzungen: Freunde und ich selber.\n");
                         printf("Bibliotheken: libogc - github.com/devkitPro/libogc\n");
                         break;
                     case 3: //French
                         printf("\n");
-                        printf("GêNêRIQUE\n");
-                        printf("IdÇe : Ilovemyhouse\n");
+                        printf("G√âN√âRIQUE\n");
+                        printf("Id√©e : Ilovemyhouse\n");
                         printf("Test : Ilovemyhouse\n");
-                        printf("Traductions : Des amis et moi-màme.\n");
+                        printf("Traductions : Des amis et moi-m√™me.\n");
                         printf("Librairies : libogc - github.com/devkitPro/libogc\n");
                         break;
                     case 4: //Spanish
                         printf("\n");
-                        printf("CRêDITOS\n");
+                        printf("CR√âDITOS\n");
                         printf("Idea y prueba: Ilovemyhouse\n");
-                        printf("Traducciones: Unos amigos, yo mismo, y un tejano que se llama... ®jeptioak?\n");
+                        printf("Traducciones: Unos amigos, yo mismo, y un tejano que se llama... ¬øjeptioak?\n");
                         printf("Bibliotecas: libogc - github.com/devkitPro/libogc\n");
                         break;
                     case 5: //Italian
                         printf("\n");
-                        printf("To be translated\n"); // ≠IT
+                        printf("To be translated\n"); // ¬°IT
                         break;
                     case 6: //Dutch
                         printf("\n");
-                        printf("Insert translation.\n"); // ≠NL
+                        printf("Insert translation.\n"); // ¬°NL
                         break;
                     default : //Translation missing
                         printf("\n");
@@ -708,11 +708,11 @@ int main(int argc, char **argv)
         }
 		//Easter Egg 2
 		if ( ((wpressed & WPAD_BUTTON_PLUS) && (wpressed & WPAD_BUTTON_MINUS)) || ((gpressed & PAD_TRIGGER_L) && (gpressed & PAD_TRIGGER_R))){
-            printf("\n2/3\nYou found an Easter Egg!\n\n≠Encontraste un peque§o secreto!\nNo se lo digas a nadie, amigo m°o.\n\nVous avez trouvÇ un petit secret !\nCette programme est plus qu'un chronomätre, c'est un Wiimätre !\n"); // I, jeptioak, think this is more interesting if everyone sees what's written in every language, so don't worry about the "case(language)" feature, just ensure you put two \n line breaks between each language and that no single line exceeds some 77 characters. It's just an easter egg, write whatever you want. In this case, something upbeat preferably. ≠DE ≠IT ≠NL
+            printf("\n2/3\nYou found an Easter Egg!\n\n¬°Encontraste un peque√±o secreto!\nNo se lo digas a nadie, amigo m√≠o.\n\nVous avez trouv√© un petit secret !\nCette programme est plus qu'un chronom√®tre, c'est un Wiim√®tre !\n"); // I, jeptioak, think this is more interesting if everyone sees what's written in every language, so don't worry about the "case(language)" feature, just ensure you put two \n line breaks between each language and that no single line exceeds some 77 characters. It's just an easter egg, write whatever you want. In this case, something upbeat preferably. ¬°DE ¬°IT ¬°NL
         }
 		//Easter Egg 3
 		if (( (wpressed & WPAD_BUTTON_B) && (wpressed & WPAD_BUTTON_A)) || ((gpressed & PAD_BUTTON_B) && (gpressed & PAD_TRIGGER_Z))){
-            printf("\n3/3\nThis text is just 0's & 1's.\n\nLa mensaje que ves est† hecho de se§ales Çlectricas binarias.\n≠Te amo!--dicen los jovenes a travÇs de nada m†s que ceros y unos.\n\nZÇro et un, la moyenne prÇfÇrÇe des jeunes pour communiquer.\n"); // In this case, write something profound about computers and their role in modern society. ≠DE ≠IT ≠NL
+            printf("\n3/3\nThis text is just 0's & 1's.\n\nLa mensaje que ves est√° hecho de se√±ales √©lectricas binarias.\n¬°Te amo!--dicen los jovenes a trav√©s de nada m√°s que ceros y unos.\n\nZ√©ro et un, la moyenne pr√©f√©r√©e des jeunes pour communiquer.\n"); // In this case, write something profound about computers and their role in modern society. ¬°DE ¬°IT ¬°NL
         }
 		//Refreshes screen.
 		VIDEO_WaitVSync();
