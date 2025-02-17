@@ -43,6 +43,7 @@
 #include <unistd.h>
 #include <wchar.h>
 #include <locale.h>
+#include <math.h>
 
 char* versionProgram = "v2.0.0 Alpha Dev v1";
 //I think a higher version number is warranted.
@@ -335,7 +336,7 @@ int main(int argc, char **argv)
 	int Hour = 0;
 	int Minute = 0;
 	int Second = 0;
-	int Milli = 39;
+	int Milli = 0;
 	int Start = 0;
     int SixtyMilli = 0;
     int Lap = 1;
@@ -410,7 +411,8 @@ int main(int argc, char **argv)
 		if (( wpressed & WPAD_BUTTON_A || gpressed & PAD_TRIGGER_Z)  && Start != 0){
 			//Start = Start + 1;
 			if (Start <= 1){
-                printf("                                                                         \r");
+                supprimeLigne();
+                //printf("                                                                         \r");
             //printf("373 start%d\n", Start);
                 switch(language){
                     case 1: //English
@@ -432,7 +434,7 @@ int main(int argc, char **argv)
                         printf("           			Ronde %d:",Lap);
                         break;
                     default : //Missing translation
-                        printf("							Lap %d (%dm):", Lap, (Lap * 400));
+                        printf("						Lap %d (%dm):", Lap, (Lap * 400));
                 }
                 printf("                  \n");
                 printf("			+%02d:%02d:%02d.%03d		%02d:%02d:%02d.%03d\n\n", LLapHour, LLapMinute, LLapSecond, LLapMilli, Hour, Minute, Second, Milli);
@@ -440,7 +442,7 @@ int main(int argc, char **argv)
                 LLapHour = 0;
                 LLapMinute = 0;
                 LLapSecond = 0;
-                LLapMilli = 39;
+                LLapSixtyMilli = 0;
                 //displayHorraire(Lap,LLapHour,LLapMinute,LLapSecond,LLapMilli,Hour,Minute,Second,Milli);
             }
 		}
@@ -508,14 +510,16 @@ int main(int argc, char **argv)
 			else
 			{
 				//printf("Debug timer\n"); //DEBUG. To check if the pause is OFF and the timer running. 
-				Milli += 16; // 400/24; //407?
-				LLapMilli += 16;
+				//Milli += 16; // 400/24; //407?
+				//LLapMilli += 16;
                 SixtyMilli += 1;
                 LLapSixtyMilli += 1;
+				Milli = round(SixtyMilli * (50/3)); // 400/24; //407?
+				LLapMilli = round(LLapSixtyMilli * (50/3));
 				if ( LLapSixtyMilli >= 60 ){
 					LLapSecond += 1;
-					LLapMilli = 39;
-                    LLapSixtyMilli = 0;
+					//LLapMilli = 39;
+                    LLapSixtyMilli -= 60;
 					if ( LLapSecond >= 60){
 						LLapMinute += 1;
 						LLapSecond -= 60;
@@ -527,8 +531,8 @@ int main(int argc, char **argv)
 				}
 				if ( SixtyMilli >= 60 ){
 					Second += 1;
-					Milli = 39;
-                    SixtyMilli = 0;
+					//Milli = 39;
+                    SixtyMilli -= 60;
 					if ( Second >= 60){
 						Minute += 1;
 						Second -= 60;
@@ -554,7 +558,7 @@ int main(int argc, char **argv)
             LLapHour = 0;
             LLapMinute = 0;
             LLapSecond = 0;
-            LLapMilli = 0;
+            //LLapMilli = 0;
             LLapSixtyMilli = 0;
 			Pause = false;
             
